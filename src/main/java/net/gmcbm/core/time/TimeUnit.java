@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package net.gmcbm.core;
+package net.gmcbm.core.time;
 
 public enum TimeUnit {
 
