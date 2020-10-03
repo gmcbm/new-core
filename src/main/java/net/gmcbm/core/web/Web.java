@@ -24,6 +24,15 @@
 
 package net.gmcbm.core.web;
 
-public interface Web {
+public class Web implements IWeb {
 
+    @Override
+    public void postRequest(String url, String content) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void getRequest(String url, String content) {
+        throw new UnsupportedOperationException();
+    }
 }

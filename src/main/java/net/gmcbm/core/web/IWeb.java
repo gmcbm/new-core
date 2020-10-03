@@ -24,7 +24,9 @@
 
 package net.gmcbm.core.web;
 
-public class WebImpl implements Web {
+public interface IWeb {
 
+    void postRequest(String url, String content);
 
+    void getRequest(String url, String content);
 }
