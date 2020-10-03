@@ -65,7 +65,7 @@ public class BanManager implements IBanManager {
 
     @Override
     public Optional<Boolean> updateBan(String banId, String reason, TimeManager time, BanType type,
-                             BanStorageLevel storageLevel) {
+                                       BanStorageLevel storageLevel) {
         if (storageMethod == StorageMethod.LOCAL) {
             return localBan.updateBan(banId, reason, time, type, storageLevel);
         }

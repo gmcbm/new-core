@@ -53,7 +53,7 @@ public class WebBan implements IBanManager {
 
     @Override
     public Optional<Boolean> updateBan(String banId, String reason, TimeManager time, BanType type,
-                             BanStorageLevel storageLevel) {
+                                       BanStorageLevel storageLevel) {
         throw new UnsupportedOperationException();
     }
 

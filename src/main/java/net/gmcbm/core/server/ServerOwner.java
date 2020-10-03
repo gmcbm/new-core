@@ -36,7 +36,7 @@ import java.util.UUID;
  * @version 1.0
  * @since 1.0
  */
-public class ServerOwner  implements  IServerOwner {
+public class ServerOwner implements IServerOwner {
 
     private final UUID ownerId;
     private final UUID uuid;
