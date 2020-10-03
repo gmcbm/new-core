@@ -35,10 +35,12 @@ public class TimeManager {
 
     private final TimeUnit unit;
     private final int amount;
+    private Instant instant;
 
     public TimeManager(TimeUnit unit, int amount) {
         this.unit = unit;
         this.amount = amount;
+        setInstant(Instant.now());
     }
 
     public long getSeconds() {
@@ -46,6 +48,14 @@ public class TimeManager {
     }
 
     public Instant getTimestamp() {
-        return Instant.now().plusSeconds(getSeconds());
+        return instant.plusSeconds(getSeconds());
+    }
+
+    public Instant getInstant() {
+        return instant;
+    }
+
+    protected final void setInstant(Instant instant) {
+        this.instant = instant;
     }
 }
