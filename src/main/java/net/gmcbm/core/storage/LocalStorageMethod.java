@@ -32,5 +32,5 @@ package net.gmcbm.core.storage;
 public enum LocalStorageMethod {
 
     YAML,
-    MYSQL;
+    MYSQL
 }

@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 import java.time.Instant;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Ursin Filli
@@ -68,7 +68,7 @@ class BanTest {
 
     @Test
     void testGetType() {
-        assertEquals(BanType.SECURITY, ban.getType(),"Coverage Test");
+        assertEquals(BanType.SECURITY, ban.getType(), "Coverage Test");
     }
 
     @Test

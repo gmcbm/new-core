@@ -27,12 +27,10 @@ package net.gmcbm.core.ban;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * @author Ursin Filli
- * @since 1.0
  * @version 1.0
+ * @since 1.0
  */
 @Disabled("Not Implemented Currently")
 class BanManagerTest {
