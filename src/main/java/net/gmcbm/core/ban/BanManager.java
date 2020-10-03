@@ -77,4 +77,9 @@ public class BanManager implements IBanManager {
         }
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public Ban getBan(String banId) {
+        throw new UnsupportedOperationException();
+    }
 }

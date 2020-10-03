@@ -36,4 +36,6 @@ public interface IBanManager {
     boolean updateBan(String banId, String reason, TimeManager time, BanType type, BanStorageLevel storageLevel);
 
     boolean deleteBan(String banId);
+
+    Ban getBan(String banId);
 }

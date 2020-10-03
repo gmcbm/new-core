@@ -43,4 +43,8 @@ class BanManagerTest {
     @Test
     void deleteBan() {
     }
+
+    @Test
+    void get() {
+    }
 }

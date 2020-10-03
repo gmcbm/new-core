@@ -58,4 +58,9 @@ public class LocalBan implements IBanManager {
     public boolean deleteBan(String banId) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public Ban getBan(String banId) {
+        throw new UnsupportedOperationException();
+    }
 }
