@@ -46,6 +46,6 @@ public class TimeManager {
     }
 
     public Instant getTimestamp() {
-        return Instant.ofEpochSecond(getSeconds());
+        return Instant.now().plusSeconds(getSeconds());
     }
 }
