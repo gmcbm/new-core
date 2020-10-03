@@ -27,6 +27,8 @@ package net.gmcbm.core.storage;
 public interface IFileStorage {
 
     boolean createFile();
+
     boolean loadFile();
+
     boolean saveFile();
 }

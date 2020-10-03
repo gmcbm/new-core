@@ -32,6 +32,8 @@ import java.util.UUID;
 public interface IBanManager {
 
     Optional<String> addBan(UUID uuid, String reason, TimeManager time, BanType type, BanStorageLevel storageLevel);
+
     boolean updateBan(String banId, String reason, TimeManager time, BanType type, BanStorageLevel storageLevel);
+
     boolean deleteBan(String banId);
 }

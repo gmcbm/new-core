@@ -29,5 +29,6 @@ import java.sql.ResultSet;
 public interface IDatabaseStorage {
 
     boolean update(String sql);
+
     ResultSet get(String sql);
 }
