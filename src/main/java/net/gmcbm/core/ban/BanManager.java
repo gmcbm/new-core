@@ -24,6 +24,7 @@
 
 package net.gmcbm.core.ban;
 
+import net.gmcbm.core.storage.LocalStorageMethod;
 import net.gmcbm.core.storage.StorageMethod;
 import net.gmcbm.core.time.TimeManager;
 
@@ -33,26 +34,47 @@ import java.util.UUID;
 public class BanManager implements IBanManager {
 
     private final StorageMethod storageMethod;
+    private final LocalBan localBan;
+    private final WebBan webBan;
 
-    public BanManager(StorageMethod storageMethod) {
+    public BanManager(StorageMethod storageMethod, LocalStorageMethod localStorageMethod) {
         this.storageMethod = storageMethod;
+        this.localBan = new LocalBan(localStorageMethod);
+        this.webBan = new WebBan();
     }
-
 
     @Override
     public Optional<String> addBan(UUID uuid, String reason, TimeManager time, BanType type,
                                    BanStorageLevel storageLevel) {
+        if (storageMethod == StorageMethod.LOCAL) {
+            return localBan.addBan(uuid, reason, time, type, storageLevel);
+        }
+        if (storageMethod == StorageMethod.WEB) {
+            return webBan.addBan(uuid, reason, time, type, storageLevel);
+        }
         throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean updateBan(String banId, String reason, TimeManager time, BanType type,
                              BanStorageLevel storageLevel) {
+        if (storageMethod == StorageMethod.LOCAL) {
+            return localBan.updateBan(banId, reason, time, type, storageLevel);
+        }
+        if (storageMethod == StorageMethod.WEB) {
+            return webBan.updateBan(banId, reason, time, type, storageLevel);
+        }
         throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean deleteBan(String banId) {
+        if (storageMethod == StorageMethod.LOCAL) {
+            return localBan.deleteBan(banId);
+        }
+        if (storageMethod == StorageMethod.WEB) {
+            return webBan.deleteBan(banId);
+        }
         throw new UnsupportedOperationException();
     }
 }
