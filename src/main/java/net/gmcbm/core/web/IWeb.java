@@ -27,6 +27,5 @@ package net.gmcbm.core.web;
 public interface IWeb {
 
     void postRequest(String url, String content);
-
     void getRequest(String url, String content);
 }
