@@ -24,6 +24,11 @@
 
 package net.gmcbm.core.time;
 
+/**
+ * @author Ursin Filli
+ * @since 1.0
+ * @version 1.0
+ */
 public enum TimeUnit {
 
     // 1 Second

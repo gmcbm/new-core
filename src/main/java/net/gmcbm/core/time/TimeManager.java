@@ -26,6 +26,11 @@ package net.gmcbm.core.time;
 
 import java.time.Instant;
 
+/**
+ * @author Ursin Filli
+ * @since 1.0
+ * @version 1.0
+ */
 public class TimeManager {
 
     private final TimeUnit unit;

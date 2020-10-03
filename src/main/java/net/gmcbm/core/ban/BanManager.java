@@ -31,6 +31,11 @@ import net.gmcbm.core.time.TimeManager;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * @author Ursin Filli
+ * @since 1.0
+ * @version 1.0
+ */
 public class BanManager implements IBanManager {
 
     private final StorageMethod storageMethod;

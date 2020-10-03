@@ -24,6 +24,11 @@
 
 package net.gmcbm.core.ban;
 
+/**
+ * @author Ursin Filli
+ * @since 1.0
+ * @version 1.0
+ */
 public enum BanType {
 
     // Time Based Ban

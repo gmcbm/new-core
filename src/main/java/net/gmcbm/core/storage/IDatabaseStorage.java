@@ -26,6 +26,11 @@ package net.gmcbm.core.storage;
 
 import java.sql.ResultSet;
 
+/**
+ * @author Ursin Filli
+ * @since 1.0
+ * @version 1.0
+ */
 public interface IDatabaseStorage {
 
     boolean update(String sql);
