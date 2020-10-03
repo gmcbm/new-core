@@ -24,9 +24,8 @@
 
 package net.gmcbm.core.server;
 
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
-
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
@@ -42,7 +41,7 @@ public class ServerOwner implements IServerOwner {
     private final UUID uuid;
     private final String ownerName;
 
-    public ServerOwner(@NotNull UUID ownerId, @Nullable UUID uuid, @NotNull String ownerName) {
+    public ServerOwner(@Nonnull UUID ownerId, @Nullable UUID uuid, @Nonnull String ownerName) {
         this.ownerId = Objects.requireNonNull(ownerId);
         this.uuid = uuid;
         this.ownerName = Objects.requireNonNull(ownerName);

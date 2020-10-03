@@ -24,11 +24,11 @@
 
 package net.gmcbm.core.ban;
 
-import com.sun.istack.internal.NotNull;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.storage.*;
 import net.gmcbm.core.time.TimeManager;
 
+import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
@@ -44,7 +44,7 @@ public class LocalBan implements IBanManager {
     private final IFileStorage fileStorage;
     private final IDatabaseStorage databaseStorage;
 
-    public LocalBan(@NotNull LocalStorageMethod localStorageMethod) {
+    public LocalBan(@Nonnull LocalStorageMethod localStorageMethod) {
         this.localStorageMethod = Objects.requireNonNull(localStorageMethod);
         this.fileStorage = new FileStorage();
         this.databaseStorage = new DatabaseStorage();
