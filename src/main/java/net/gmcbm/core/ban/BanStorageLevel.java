@@ -22,28 +22,14 @@
  * SOFTWARE.
  */
 
-package net.gmcbm.core.storage;
+package net.gmcbm.core.ban;
 
-public class LocalStorage implements ILocalStorage {
+public enum BanStorageLevel {
 
-    private final LocalStorageMethod localStorageMethod;
-
-    public LocalStorage(LocalStorageMethod localStorageMethod) {
-        this.localStorageMethod = localStorageMethod;
-    }
-
-    @Override
-    public boolean createFile() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean loadFile() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean saveFile() {
-        throw new UnsupportedOperationException();
-    }
+    // Ban is just on this Server
+    SERVER_LEVEL,
+    // Ban is on all Servers of the Owner
+    USER_LEVEL,
+    // Ban is Global
+    GLOBAL_LEVEL
 }

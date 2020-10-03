@@ -24,11 +24,10 @@
 
 package net.gmcbm.core.storage;
 
-public class LocalStorageImp implements LocalStorage {
+public interface ILocalStorage {
 
-    private final LocalStorageMethod localStorageMethod;
+    boolean createFile();
+    boolean loadFile();
+    boolean saveFile();
 
-    public LocalStorageImp(LocalStorageMethod localStorageMethod) {
-        this.localStorageMethod = localStorageMethod;
-    }
 }

@@ -22,28 +22,25 @@
  * SOFTWARE.
  */
 
-package net.gmcbm.core.storage;
+package net.gmcbm.core.ban;
 
-public class LocalStorage implements ILocalStorage {
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-    private final LocalStorageMethod localStorageMethod;
+import static org.junit.jupiter.api.Assertions.*;
 
-    public LocalStorage(LocalStorageMethod localStorageMethod) {
-        this.localStorageMethod = localStorageMethod;
+@Disabled("Not Implemented Currently")
+class BanManagerTest {
+
+    @Test
+    void addBan() {
     }
 
-    @Override
-    public boolean createFile() {
-        throw new UnsupportedOperationException();
+    @Test
+    void updateBan() {
     }
 
-    @Override
-    public boolean loadFile() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean saveFile() {
-        throw new UnsupportedOperationException();
+    @Test
+    void deleteBan() {
     }
 }

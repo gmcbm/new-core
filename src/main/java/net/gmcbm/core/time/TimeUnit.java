@@ -22,28 +22,32 @@
  * SOFTWARE.
  */
 
-package net.gmcbm.core.storage;
+package net.gmcbm.core.time;
 
-public class LocalStorage implements ILocalStorage {
+public enum TimeUnit {
 
-    private final LocalStorageMethod localStorageMethod;
+    // 1 Second
+    SECOND(1),
+    // 60 Seconds
+    MINUTE(60),
+    // 60 Minutes
+    HOUR(3_600),
+    // 24 Hours
+    DAY(86_400),
+    // 7 Days
+    WEEK(604_800),
+    // 30 Days
+    MONTH(2_592_000),
+    // 356 Days
+    YEAR(30_758_400);
 
-    public LocalStorage(LocalStorageMethod localStorageMethod) {
-        this.localStorageMethod = localStorageMethod;
+    private final long seconds;
+
+    TimeUnit(long seconds) {
+        this.seconds = seconds;
     }
 
-    @Override
-    public boolean createFile() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean loadFile() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean saveFile() {
-        throw new UnsupportedOperationException();
+    public long getSeconds() {
+        return seconds;
     }
 }

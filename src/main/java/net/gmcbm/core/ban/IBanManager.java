@@ -22,28 +22,18 @@
  * SOFTWARE.
  */
 
-package net.gmcbm.core.storage;
+package net.gmcbm.core.ban;
 
-public class LocalStorage implements ILocalStorage {
+import net.gmcbm.core.time.TimeManager;
 
-    private final LocalStorageMethod localStorageMethod;
+import java.util.Optional;
+import java.util.UUID;
 
-    public LocalStorage(LocalStorageMethod localStorageMethod) {
-        this.localStorageMethod = localStorageMethod;
-    }
+public interface IBanManager {
 
-    @Override
-    public boolean createFile() {
-        throw new UnsupportedOperationException();
-    }
+    Optional<String> addBan(UUID uuid, String reason, TimeManager time, BanType type, BanStorageLevel storageLevel);
 
-    @Override
-    public boolean loadFile() {
-        throw new UnsupportedOperationException();
-    }
+    boolean updateBan(String banId, String reason, TimeManager time, BanType type, BanStorageLevel storageLevel);
 
-    @Override
-    public boolean saveFile() {
-        throw new UnsupportedOperationException();
-    }
+    boolean deleteBan(String banId);
 }

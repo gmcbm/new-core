@@ -22,28 +22,11 @@
  * SOFTWARE.
  */
 
-package net.gmcbm.core.storage;
+package net.gmcbm.core.web;
 
-public class LocalStorage implements ILocalStorage {
+public interface IWeb {
 
-    private final LocalStorageMethod localStorageMethod;
+    void postRequest(String url, String content);
 
-    public LocalStorage(LocalStorageMethod localStorageMethod) {
-        this.localStorageMethod = localStorageMethod;
-    }
-
-    @Override
-    public boolean createFile() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean loadFile() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean saveFile() {
-        throw new UnsupportedOperationException();
-    }
+    void getRequest(String url, String content);
 }

@@ -22,9 +22,25 @@
  * SOFTWARE.
  */
 
-package net.gmcbm.core.web;
+package net.gmcbm.core.time;
 
-public class WebImpl implements Web {
+import java.time.Instant;
 
+public class TimeManager {
 
+    private final TimeUnit unit;
+    private final int amount;
+
+    public TimeManager(TimeUnit unit, int amount) {
+        this.unit = unit;
+        this.amount = amount;
+    }
+
+    public long getSeconds() {
+        return unit.getSeconds() * amount;
+    }
+
+    public Instant getTimestamp() {
+        return Instant.ofEpochSecond(getSeconds());
+    }
 }
