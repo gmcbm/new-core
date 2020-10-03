@@ -24,6 +24,26 @@
 
 package net.gmcbm.core.storage;
 
-public interface LocalStorage {
+public class LocalStorage implements ILocalStorage {
 
+    private final LocalStorageMethod localStorageMethod;
+
+    public LocalStorage(LocalStorageMethod localStorageMethod) {
+        this.localStorageMethod = localStorageMethod;
+    }
+
+    @Override
+    public boolean createFile() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean loadFile() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean saveFile() {
+        throw new UnsupportedOperationException();
+    }
 }
