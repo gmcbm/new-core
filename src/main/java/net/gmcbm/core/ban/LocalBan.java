@@ -24,9 +24,12 @@
 
 package net.gmcbm.core.ban;
 
+import com.sun.istack.internal.NotNull;
+import net.gmcbm.core.server.Server;
 import net.gmcbm.core.storage.*;
 import net.gmcbm.core.time.TimeManager;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -41,31 +44,41 @@ public class LocalBan implements IBanManager {
     private final IFileStorage fileStorage;
     private final IDatabaseStorage databaseStorage;
 
-    public LocalBan(LocalStorageMethod localStorageMethod) {
-        this.localStorageMethod = localStorageMethod;
+    public LocalBan(@NotNull LocalStorageMethod localStorageMethod) {
+        this.localStorageMethod = Objects.requireNonNull(localStorageMethod);
         this.fileStorage = new FileStorage();
         this.databaseStorage = new DatabaseStorage();
     }
 
     @Override
-    public Optional<String> addBan(UUID uuid, String reason, TimeManager time, BanType type,
+    public Optional<String> addBan(Server server, UUID uuid, String reason, TimeManager time, BanType type,
                                    BanStorageLevel storageLevel) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean updateBan(String banId, String reason, TimeManager time, BanType type,
+    public Optional<Boolean> updateBan(String banId, String reason, TimeManager time, BanType type,
                              BanStorageLevel storageLevel) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean deleteBan(String banId) {
+    public Optional<Boolean> deleteBan(String banId) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Ban getBan(String banId) {
+    public Optional<Ban> getBan(String banId) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Boolean> isBanned() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Boolean> isBannedOnLevel(BanStorageLevel storageLevel) {
         throw new UnsupportedOperationException();
     }
 }

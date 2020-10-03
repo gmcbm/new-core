@@ -24,6 +24,8 @@
 
 package net.gmcbm.core.ban;
 
+import com.sun.istack.internal.NotNull;
+import net.gmcbm.core.server.Server;
 import net.gmcbm.core.time.TimeManager;
 
 import java.util.Optional;
@@ -36,11 +38,17 @@ import java.util.UUID;
  */
 public interface IBanManager {
 
-    Optional<String> addBan(UUID uuid, String reason, TimeManager time, BanType type, BanStorageLevel storageLevel);
+    Optional<String> addBan(@NotNull Server server, @NotNull UUID uuid, @NotNull String reason,
+                            @NotNull TimeManager time, @NotNull BanType type, @NotNull BanStorageLevel storageLevel);
 
-    boolean updateBan(String banId, String reason, TimeManager time, BanType type, BanStorageLevel storageLevel);
+    Optional<Boolean> updateBan(@NotNull String banId, @NotNull String reason, @NotNull TimeManager time,
+                                @NotNull BanType type, @NotNull BanStorageLevel storageLevel);
 
-    boolean deleteBan(String banId);
+    Optional<Boolean> deleteBan(@NotNull String banId);
 
-    Ban getBan(String banId);
+    Optional<Ban> getBan(@NotNull String banId);
+
+    Optional<Boolean> isBanned();
+
+    Optional<Boolean> isBannedOnLevel(@NotNull BanStorageLevel storageLevel);
 }

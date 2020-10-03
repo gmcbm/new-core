@@ -24,6 +24,7 @@
 
 package net.gmcbm.core.ban;
 
+import net.gmcbm.core.server.Server;
 import net.gmcbm.core.time.TimeManager;
 import net.gmcbm.core.web.IWeb;
 import net.gmcbm.core.web.Web;
@@ -45,24 +46,34 @@ public class WebBan implements IBanManager {
     }
 
     @Override
-    public Optional<String> addBan(UUID uuid, String reason, TimeManager time, BanType type,
+    public Optional<String> addBan(Server server, UUID uuid, String reason, TimeManager time, BanType type,
                                    BanStorageLevel storageLevel) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean updateBan(String banId, String reason, TimeManager time, BanType type,
+    public Optional<Boolean> updateBan(String banId, String reason, TimeManager time, BanType type,
                              BanStorageLevel storageLevel) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean deleteBan(String banId) {
+    public Optional<Boolean> deleteBan(String banId) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Ban getBan(String banId) {
+    public Optional<Ban> getBan(String banId) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Boolean> isBanned() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Boolean> isBannedOnLevel(BanStorageLevel storageLevel) {
         throw new UnsupportedOperationException();
     }
 }

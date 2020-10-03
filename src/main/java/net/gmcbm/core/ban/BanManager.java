@@ -24,10 +24,13 @@
 
 package net.gmcbm.core.ban;
 
+import com.sun.istack.internal.NotNull;
+import net.gmcbm.core.server.Server;
 import net.gmcbm.core.storage.LocalStorageMethod;
 import net.gmcbm.core.storage.StorageMethod;
 import net.gmcbm.core.time.TimeManager;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -42,26 +45,26 @@ public class BanManager implements IBanManager {
     private final LocalBan localBan;
     private final WebBan webBan;
 
-    public BanManager(StorageMethod storageMethod, LocalStorageMethod localStorageMethod) {
-        this.storageMethod = storageMethod;
+    public BanManager(@NotNull StorageMethod storageMethod, @NotNull LocalStorageMethod localStorageMethod) {
+        this.storageMethod = Objects.requireNonNull(storageMethod);
         this.localBan = new LocalBan(localStorageMethod);
         this.webBan = new WebBan();
     }
 
     @Override
-    public Optional<String> addBan(UUID uuid, String reason, TimeManager time, BanType type,
+    public Optional<String> addBan(Server server, UUID uuid, String reason, TimeManager time, BanType type,
                                    BanStorageLevel storageLevel) {
         if (storageMethod == StorageMethod.LOCAL) {
-            return localBan.addBan(uuid, reason, time, type, storageLevel);
+            return localBan.addBan(server, uuid, reason, time, type, storageLevel);
         }
         if (storageMethod == StorageMethod.WEB) {
-            return webBan.addBan(uuid, reason, time, type, storageLevel);
+            return webBan.addBan(server, uuid, reason, time, type, storageLevel);
         }
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean updateBan(String banId, String reason, TimeManager time, BanType type,
+    public Optional<Boolean> updateBan(String banId, String reason, TimeManager time, BanType type,
                              BanStorageLevel storageLevel) {
         if (storageMethod == StorageMethod.LOCAL) {
             return localBan.updateBan(banId, reason, time, type, storageLevel);
@@ -73,7 +76,7 @@ public class BanManager implements IBanManager {
     }
 
     @Override
-    public boolean deleteBan(String banId) {
+    public Optional<Boolean> deleteBan(String banId) {
         if (storageMethod == StorageMethod.LOCAL) {
             return localBan.deleteBan(banId);
         }
@@ -84,7 +87,35 @@ public class BanManager implements IBanManager {
     }
 
     @Override
-    public Ban getBan(String banId) {
+    public Optional<Ban> getBan(String banId) {
+        if (storageMethod == StorageMethod.LOCAL) {
+            return localBan.getBan(banId);
+        }
+        if (storageMethod == StorageMethod.WEB) {
+            return webBan.getBan(banId);
+        }
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Boolean> isBanned() {
+        if (storageMethod == StorageMethod.LOCAL) {
+            return localBan.isBanned();
+        }
+        if (storageMethod == StorageMethod.WEB) {
+            return webBan.isBanned();
+        }
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Boolean> isBannedOnLevel(BanStorageLevel storageLevel) {
+        if (storageMethod == StorageMethod.LOCAL) {
+            return localBan.isBannedOnLevel(storageLevel);
+        }
+        if (storageMethod == StorageMethod.WEB) {
+            return webBan.isBannedOnLevel(storageLevel);
+        }
         throw new UnsupportedOperationException();
     }
 }

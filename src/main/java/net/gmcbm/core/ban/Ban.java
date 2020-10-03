@@ -24,7 +24,10 @@
 
 package net.gmcbm.core.ban;
 
+import com.sun.istack.internal.NotNull;
+
 import java.time.Instant;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -41,13 +44,14 @@ public class Ban {
     private final BanType type;
     private final BanStorageLevel storageLevel;
 
-    public Ban(UUID uuid, String banId, String reason, Instant timestamp, BanType type, BanStorageLevel storageLevel) {
-        this.uuid = uuid;
-        this.banId = banId;
-        this.reason = reason;
-        this.timestamp = timestamp;
-        this.type = type;
-        this.storageLevel = storageLevel;
+    public Ban(@NotNull UUID uuid, @NotNull String banId, @NotNull String reason, @NotNull Instant timestamp,
+               @NotNull BanType type, @NotNull BanStorageLevel storageLevel) {
+        this.uuid = Objects.requireNonNull(uuid);
+        this.banId = Objects.requireNonNull(banId);
+        this.reason = Objects.requireNonNull(reason);
+        this.timestamp = Objects.requireNonNull(timestamp);
+        this.type = Objects.requireNonNull(type);
+        this.storageLevel = Objects.requireNonNull(storageLevel);
     }
 
     public UUID getUuid() {
