@@ -25,6 +25,7 @@
 package net.gmcbm.core.server;
 
 import com.sun.istack.internal.NotNull;
+import com.sun.istack.internal.Nullable;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -40,10 +41,10 @@ public class Server implements IServer {
     private final String serverName;
     private final ServerOwner serverOwner;
 
-    public Server(@NotNull UUID serverId, @NotNull String serverName, @NotNull ServerOwner serverOwner) {
+    public Server(@NotNull UUID serverId, @Nullable String serverName, @Nullable ServerOwner serverOwner) {
         this.serverId = Objects.requireNonNull(serverId);
-        this.serverName = Objects.requireNonNull(serverName);
-        this.serverOwner = Objects.requireNonNull(serverOwner);
+        this.serverName = serverName;
+        this.serverOwner = serverOwner;
     }
 
     @Override
