@@ -24,11 +24,10 @@
 
 package net.gmcbm.core.server;
 
-
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -54,12 +53,12 @@ public class Server implements IServer {
     }
 
     @Override
-    public String getServerName() {
-        return this.serverName;
+    public Optional<String> getServerName() {
+        return Optional.ofNullable(this.serverName);
     }
 
     @Override
-    public ServerOwner getOwner() {
-        return serverOwner;
+    public Optional<ServerOwner> getOwner() {
+        return Optional.ofNullable(serverOwner);
     }
 }

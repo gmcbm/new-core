@@ -24,6 +24,7 @@
 
 package net.gmcbm.core.server;
 
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -35,7 +36,7 @@ public interface IServer {
 
     UUID getServerId();
 
-    String getServerName();
+    Optional<String> getServerName();
 
-    ServerOwner getOwner();
+    Optional<ServerOwner> getOwner();
 }
