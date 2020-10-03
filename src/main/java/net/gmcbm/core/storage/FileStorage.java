@@ -24,13 +24,7 @@
 
 package net.gmcbm.core.storage;
 
-public class LocalStorage implements ILocalStorage {
-
-    private final LocalStorageMethod localStorageMethod;
-
-    public LocalStorage(LocalStorageMethod localStorageMethod) {
-        this.localStorageMethod = localStorageMethod;
-    }
+public class FileStorage implements IFileStorage {
 
     @Override
     public boolean createFile() {
