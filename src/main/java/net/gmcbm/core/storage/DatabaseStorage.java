@@ -28,8 +28,8 @@ import java.sql.ResultSet;
 
 /**
  * @author Ursin Filli
- * @since 1.0
  * @version 1.0
+ * @since 1.0
  */
 public class DatabaseStorage implements IDatabaseStorage {
 
