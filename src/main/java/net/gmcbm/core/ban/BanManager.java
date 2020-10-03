@@ -52,8 +52,9 @@ public class BanManager implements IBanManager {
     }
 
     @Override
-    public Optional<String> addBan(Server server, UUID uuid, String reason, TimeManager time, BanType type,
-                                   BanStorageLevel storageLevel) {
+    public Optional<String> addBan(@Nonnull Server server, @Nonnull UUID uuid, @Nonnull String reason,
+                                   @Nonnull TimeManager time, @Nonnull BanType type,
+                                   @Nonnull BanStorageLevel storageLevel) {
         if (storageMethod == StorageMethod.LOCAL) {
             return localBan.addBan(server, uuid, reason, time, type, storageLevel);
         }
@@ -64,8 +65,8 @@ public class BanManager implements IBanManager {
     }
 
     @Override
-    public Optional<Boolean> updateBan(String banId, String reason, TimeManager time, BanType type,
-                                       BanStorageLevel storageLevel) {
+    public Optional<Boolean> updateBan(@Nonnull String banId, @Nonnull String reason, @Nonnull TimeManager time,
+                                       @Nonnull BanType type, @Nonnull BanStorageLevel storageLevel) {
         if (storageMethod == StorageMethod.LOCAL) {
             return localBan.updateBan(banId, reason, time, type, storageLevel);
         }
@@ -76,7 +77,7 @@ public class BanManager implements IBanManager {
     }
 
     @Override
-    public Optional<Boolean> deleteBan(String banId) {
+    public Optional<Boolean> deleteBan(@Nonnull String banId) {
         if (storageMethod == StorageMethod.LOCAL) {
             return localBan.deleteBan(banId);
         }
@@ -87,7 +88,7 @@ public class BanManager implements IBanManager {
     }
 
     @Override
-    public Optional<Ban> getBan(String banId) {
+    public Optional<Ban> getBan(@Nonnull String banId) {
         if (storageMethod == StorageMethod.LOCAL) {
             return localBan.getBan(banId);
         }
@@ -109,7 +110,7 @@ public class BanManager implements IBanManager {
     }
 
     @Override
-    public Optional<Boolean> isBannedOnLevel(BanStorageLevel storageLevel) {
+    public Optional<Boolean> isBannedOnLevel(@Nonnull BanStorageLevel storageLevel) {
         if (storageMethod == StorageMethod.LOCAL) {
             return localBan.isBannedOnLevel(storageLevel);
         }
