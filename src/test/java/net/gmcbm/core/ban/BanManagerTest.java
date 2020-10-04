@@ -27,6 +27,8 @@ package net.gmcbm.core.ban;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 /**
  * @author Ursin Filli
  * @version 1.0
@@ -36,18 +38,26 @@ import org.junit.jupiter.api.Test;
 class BanManagerTest {
 
     @Test
-    void addBan() {
+    void testAddBan() {
     }
 
     @Test
-    void updateBan() {
+    void testUpdateBan() {
     }
 
     @Test
-    void deleteBan() {
+    void testDeleteBan() {
     }
 
     @Test
-    void get() {
+    void testGetBan() {
+    }
+
+    @Test
+    void testIsBanned() {
+    }
+
+    @Test
+    void testIsBannedOnLevel() {
     }
 }
