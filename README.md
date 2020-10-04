@@ -1,2 +1,2 @@
-# new-core
-New GMCBM Core (Recode)
+# GMCBM Core
+Includes miscellaneous needed functions.
