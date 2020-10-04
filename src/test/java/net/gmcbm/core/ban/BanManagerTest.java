@@ -27,8 +27,6 @@ package net.gmcbm.core.ban;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * @author Ursin Filli
  * @version 1.0
